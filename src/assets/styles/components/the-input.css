@@ -1,0 +1,41 @@
+.the-input {
+  margin: 1rem 0;
+}
+
+.the-input label,
+.the-input input,
+.the-input textarea {
+  display: block;
+}
+
+.the-input label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.the-input input,
+.the-input textarea {
+  width: 100%;
+  font: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  padding: 0.15rem 0.25rem;
+}
+
+.the-input input:focus,
+.the-input textarea:focus {
+  outline: none;
+  background: #ebebeb;
+  border-color: #510077;
+}
+
+.the-input--invalid label,
+.the-input--invalid p {
+  color: red;
+}
+
+.the-input--invalid input,
+.the-input--invalid textarea {
+  border-color: red;
+  background: #ffd1d1;
+}
