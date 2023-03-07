@@ -6,6 +6,9 @@ const fromReducer = (state, action) => {
       let fromIsValue = true;
 
       for (const inputId in state.inputs) {
+        if (!state.inputs[inputId]) {
+          continue;
+        }
         if (inputId === action.inputId) {
           fromIsValue = fromIsValue && action.isValid;
         } else {

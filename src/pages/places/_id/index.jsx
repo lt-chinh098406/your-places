@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import TheInput from "../../../components/TheInput";
 import TheButton from "../../../components/TheButton";
+import TheCard from "../../../components/TheCard";
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
@@ -33,19 +34,21 @@ const UpdatePlace = () => {
   const identifiedPalce = PLACES.find((place) => place.id === placeId);
 
   useEffect(() => {
-    setFormData(
-      {
-        title: {
-          value: identifiedPalce.title,
-          isValid: true,
+    if (identifiedPalce) {
+      setFormData(
+        {
+          title: {
+            value: identifiedPalce.title,
+            isValid: true,
+          },
+          description: {
+            value: identifiedPalce.description,
+            isValid: true,
+          },
         },
-        description: {
-          value: identifiedPalce.description,
-          isValid: true,
-        },
-      },
-      true
-    );
+        true
+      );
+    }
     setIsLoading(false);
   }, [setFormData, identifiedPalce]);
 
@@ -58,7 +61,9 @@ const UpdatePlace = () => {
   if (!identifiedPalce) {
     return (
       <div className="center">
-        <h2>Could not find place!</h2>
+        <TheCard>
+          <h2>Could not find place!</h2>
+        </TheCard>
       </div>
     );
   }
